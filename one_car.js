@@ -1,7 +1,7 @@
 km_beginn = 312 // km bei Fahrzeugübernahme
 dauer = 3 // Jahre 
-km_pa = 20000 // pro Jahr
-datum = "16.05.2020" // Startdatum des Leasing Vertrages
+km_pa = 35000 // pro Jahr
+datum = "04.03.2021" // Startdatum des Leasing Vertrages
 
 function createWidget() {
   if (km_pa != null && datum!= null){
@@ -15,8 +15,11 @@ function createWidget() {
     console.log("end_date= " + end_date)
     current_date = new Date()
     date_diff_ms = current_date.getTime() - start_date.getTime()
+    date_diff_to_end_ms = end_date.getTime() - start_date.getTime()
+    
+    date_diff_to_end_days = date_diff_to_end_ms / 1000 /3600 /24
 
-    date_diff_days = date_diff_ms/ 1000 /3600 /24
+    date_diff_days = date_diff_ms / 1000 /3600 /24
     date_diff_years = date_diff_days / 365
 
     km_total = km_pa/365*date_diff_days + km_beginn
@@ -47,7 +50,7 @@ function createWidget() {
   
   w.addSpacer(1)
   
-  tage_uebrig =  String( Math.round( date_diff_days ))
+  tage_uebrig =  String( Math.round( date_diff_to_end_days ))
   let subTxt2 = w.addText(tage_uebrig + " Tage übrig")
   subTxt2.textColor = Color.black()
   subTxt2.textOpacity = 0.8
