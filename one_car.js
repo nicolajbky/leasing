@@ -19,12 +19,12 @@ function createWidget() {
     km_total = km_pa/365*date_diff_days + km_beginn
   }
   let w = new ListWidget()
-  w.backgroundColor = new Color("#53d769", 0.5)
+  w.backgroundColor = new Color("#FFFFFF")
                                 
   let preTxt = w.addText("Kilometerzähler")
   preTxt.textColor = Color.black()
   preTxt.textOpacity = 0.8
-  preTxt.font = Font.systemFont(16)
+  preTxt.font = Font.systemFont(14)
   
   w.addSpacer(5)
   
@@ -34,19 +34,19 @@ function createWidget() {
   
   w.addSpacer(5)
   
-  km_uebrig = String(Math.round(km_pa*date_diff_years - km_total)) ) 
+  km_uebrig = String(Math.round(km_pa*date_diff_years - km_total)) 
   let subTxt = w.addText(km_uebrig + " km übrig")
   subTxt.textColor = Color.black()
   subTxt.textOpacity = 0.8
-  subTxt.font = Font.systemFont(18)
+  subTxt.font = Font.systemFont(14)
   
   w.addSpacer(5)
   
-  tage_uebrig =  String( Math.round( date_diff_days )
-  let subTxt = w.addText(tage_uebrig + " Tage übrig")
-  subTxt.textColor = Color.black()
-  subTxt.textOpacity = 0.8
-  subTxt.font = Font.systemFont(18)
+  tage_uebrig =  String( Math.round( date_diff_days ))
+  let subTxt2 = w.addText(tage_uebrig + " Tage übrig")
+  subTxt2.textColor = Color.black()
+  subTxt2.textOpacity = 0.8
+  subTxt2.font = Font.systemFont(14)
   
   return w
 }
