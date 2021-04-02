@@ -34,13 +34,19 @@ function createWidget() {
   
   w.addSpacer(5)
   
-  km_uebrig = String(Math.round(km_pa*date_diff_years-km_total)) ) //+ " (" + String(Math.round( (km_pa*date_diff_years-km_total)/km_pa*100)) + "%)"
-  let subTxt = w.addText(km_uebrig)
+  km_uebrig = String(Math.round(km_pa*date_diff_years - km_total)) ) 
+  let subTxt = w.addText(km_uebrig + " km übrig")
   subTxt.textColor = Color.black()
   subTxt.textOpacity = 0.8
   subTxt.font = Font.systemFont(18)
   
+  w.addSpacer(5)
   
+  tage_uebrig =  String( Math.round( date_diff_days )
+  let subTxt = w.addText(tage_uebrig + " Tage übrig")
+  subTxt.textColor = Color.black()
+  subTxt.textOpacity = 0.8
+  subTxt.font = Font.systemFont(18)
   
   return w
 }
