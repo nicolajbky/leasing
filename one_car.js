@@ -10,11 +10,13 @@ function createWidget() {
     monat = datum_array[1]-1
     jahr = datum_array[2]
     start_date = new Date(jahr, monat, tag)
+    end_date = new Date(jahr + dauer, monat, tag)
+    consol.log(end_date)
     current_date = new Date()
     date_diff_ms = current_date.getTime() - start_date.getTime()
 
     date_diff_days = date_diff_ms/ 1000 /3600 /24
-    date_diff_years = date_diff_days/365
+    date_diff_years = date_diff_days / 365
 
     km_total = km_pa/365*date_diff_days + km_beginn
   }
@@ -42,13 +44,20 @@ function createWidget() {
   subTxt.textOpacity = 0.8
   subTxt.font = Font.systemFont(14)
   
-  w.addSpacer(5)
+  w.addSpacer(1)
   
   tage_uebrig =  String( Math.round( date_diff_days ))
   let subTxt2 = w.addText(tage_uebrig + " Tage übrig")
   subTxt2.textColor = Color.black()
   subTxt2.textOpacity = 0.8
   subTxt2.font = Font.systemFont(14)
+  
+  w.addSpacer(1)
+  let subTxt3 = w.addText("bis " end_date.format("dd.mm.yyy"))
+  subTxt3.textColor = Color.black()
+  subTxt3.textOpacity = 0.8
+  subTxt3.font = Font.systemFont(14)
+  
   
   return w
 }
