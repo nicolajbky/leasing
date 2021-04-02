@@ -15,7 +15,7 @@ function createWidget() {
     console.log("end_date= " + end_date)
     current_date = new Date()
     date_diff_ms = current_date.getTime() - start_date.getTime()
-    date_diff_to_end_ms = end_date.getTime() - start_date.getTime()
+    date_diff_to_end_ms = end_date.getTime() - current_date
     
     date_diff_to_end_days = date_diff_to_end_ms / 1000 /3600 /24
 
