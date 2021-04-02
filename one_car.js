@@ -26,12 +26,12 @@ function createWidget() {
   
   w.addSpacer(5)
   
-  let titleTxt = w.addText(km_total)
+  let titleTxt = w.addText(String(Math.round(km_total)))
   titleTxt.textColor = Color.black()
   titleTxt.font = Font.systemFont(22)
   
   w.addSpacer(5)
-  km_uebrig = int(km*date_diff_years-km_total) + " (" + int((km*date_diff_years-km_total)/km*100) + "%)"
+  km_uebrig = String(Math.round(km*date_diff_years-km_total)) + " (" + String(Math.round( (km*date_diff_years-km_total)/km*100)) + "%)"
   let subTxt = w.addText(km_uebrig)
   subTxt.textColor = Color.black()
   subTxt.textOpacity = 0.8
