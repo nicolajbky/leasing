@@ -1,14 +1,7 @@
 km = 10000
 datum = "19.02.2011"
 
-
-let widget = createWidget()
-Script.setWidget(widget)
-Script.complete()
-
-
-
-
+function createWidget() {
   if (km != null && datum!= null){
     datum_array = datum.split(".")
     tag = datum_array[0]
@@ -23,8 +16,6 @@ Script.complete()
 
     km_total = km/365*date_diff_days
   }
-
-function createWidget() {
   let w = new ListWidget()
   w.backgroundColor = new Color("#53d769", 0.5)
                                 
@@ -48,3 +39,7 @@ function createWidget() {
   
   return w
 }
+
+let widget = createWidget()
+Script.setWidget(widget)
+Script.complete()
