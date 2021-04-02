@@ -1,7 +1,7 @@
 km_beginn = 312 // km bei Fahrzeugübernahme
 dauer = 3 // Jahre 
 km_pa = 35000 // pro Jahr
-datum = "04.03.2021" // Startdatum des Leasing Vertrages
+datum = "04.03.2019" // Startdatum des Leasing Vertrages
 
 function createWidget() {
   if (km_pa != null && datum!= null){
