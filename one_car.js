@@ -36,7 +36,7 @@ function createWidget() {
   
   console.log("km_pa" + km_pa)
   console.log("date_diff_years" + date_diff_years)
-  km_uebrig = String(Math.round(km_pa*date_diff_years - km_total)) 
+  km_uebrig = String(Math.round(km_beginn + dauer * km_pa - km_total)) 
   let subTxt = w.addText(km_uebrig + " km übrig")
   subTxt.textColor = Color.black()
   subTxt.textOpacity = 0.8
