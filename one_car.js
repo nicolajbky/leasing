@@ -3,27 +3,48 @@ let mytext  shortcutParameter
 let km = 10000
 let abc = "hello world"
 
-let widget = createWidget("Coronavirus", `${km} Today`, `${abc} Total`, "#53d769")
+let widget = createWidget()
 Script.setWidget(widget)
 Script.complete()
 
+km = 150000
+datum = "19.02.2011"
 
+  if (km != null && datum!= null){
+    datum_array = datum.split(".")
+    tag = datum_array[0]
+    monat = datum_array[1]-1
+    jahr = datum_array[2]
+    start_date = new Date(jahr, monat, tag)
+    current_date = new Date()
+    date_diff_ms = current_date.getTime() - start_date.getTime()
 
-function createWidget(pretitle, title, subtitle, color) {
+    date_diff_days = date_diff_ms/ 1000 /3600 /24
+    date_diff_years = ceil(date_diff_days/365)
+
+    km_total = float(km/365*date_diff_days).toFixed(3)
+
+function createWidget() {
   let w = new ListWidget()
-  w.backgroundColor = new Color(color)
-  let preTxt = w.addText(pretitle)
-  preTxt.textColor = Color.white()
+  w.backgroundColor = new Color(#53d769, 0.5)
+                                
+  let preTxt = w.addText("Kilometerzähler")
+  preTxt.textColor = Color.black()
   preTxt.textOpacity = 0.8
   preTxt.font = Font.systemFont(16)
+  
   w.addSpacer(5)
-  let titleTxt = w.addText(title)
-  titleTxt.textColor = Color.white()
+  
+  let titleTxt = w.addText("100.000")
+  titleTxt.textColor = Color.black()
   titleTxt.font = Font.systemFont(22)
+  
   w.addSpacer(5)
-  let subTxt = w.addText(subtitle)
-  subTxt.textColor = Color.white()
+  
+  let subTxt = w.addText("Unter-Überschrift")
+  subTxt.textColor = Color.black()
   subTxt.textOpacity = 0.8
   subTxt.font = Font.systemFont(18)
+  
   return w
 }
