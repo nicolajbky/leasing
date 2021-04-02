@@ -1,14 +1,13 @@
-let mytext  shortcutParameter
+km = 10000
+datum = "19.02.2011"
 
-let km = 10000
-let abc = "hello world"
 
 let widget = createWidget()
 Script.setWidget(widget)
 Script.complete()
 
-km = 150000
-datum = "19.02.2011"
+
+
 
   if (km != null && datum!= null){
     datum_array = datum.split(".")
@@ -23,10 +22,11 @@ datum = "19.02.2011"
     date_diff_years = ceil(date_diff_days/365)
 
     km_total = float(km/365*date_diff_days).toFixed(3)
+  }
 
 function createWidget() {
   let w = new ListWidget()
-  w.backgroundColor = new Color(#53d769, 0.5)
+  w.backgroundColor = new Color("#53d769", 0.5)
                                 
   let preTxt = w.addText("Kilometerzähler")
   preTxt.textColor = Color.black()
