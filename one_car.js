@@ -8,10 +8,11 @@ function createWidget() {
     datum_array = datum.split(".")
     tag = datum_array[0]
     monat = datum_array[1]-1
-    jahr = datum_array[2]
+    jahr = Number(datum_array[2])
     start_date = new Date(jahr, monat, tag)
+    console.log("start_date= " + start_date)
     end_date = new Date(jahr + dauer, monat, tag)
-    consol.log(end_date)
+    console.log("end_date= " + end_date)
     current_date = new Date()
     date_diff_ms = current_date.getTime() - start_date.getTime()
 
@@ -53,7 +54,9 @@ function createWidget() {
   subTxt2.font = Font.systemFont(14)
   
   w.addSpacer(1)
-  let subTxt3 = w.addText("bis " end_date.format("dd.mm.yyy"))
+  df = new DateFormatter()
+  df.dateFormat = "dd.MM.YYY"
+  let subTxt3 = w.addText("bis " + df.string(end_date))
   subTxt3.textColor = Color.black()
   subTxt3.textOpacity = 0.8
   subTxt3.font = Font.systemFont(14)
